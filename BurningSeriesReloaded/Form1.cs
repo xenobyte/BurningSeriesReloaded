@@ -5,7 +5,6 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using updateSystemDotNet;
 
 namespace BurningSeriesReloaded
 {
@@ -34,9 +33,7 @@ namespace BurningSeriesReloaded
                 toolStripLabel3.Visible = true;
                 toolStripSeparator2.Visible = true;
             }
-            updateController1.updateFound += updateController1_updateFound;
-              updateController1.checkForUpdatesAsync();
-
+            
             cmdPlay.Enabled = false;
             cbSerie.SelectedValueChanged -= cbSerie_SelectedValueChanged;
 
@@ -45,10 +42,7 @@ namespace BurningSeriesReloaded
             cbSerie.DataSource = BurningSeries.Serien();
             cbSerie.SelectedValueChanged += cbSerie_SelectedValueChanged;
         }
-        private void updateController1_updateFound(object sender, updateSystemDotNet.appEventArgs.updateFoundEventArgs e)
-        {
-            updateController1.updateInteractive();
-        }
+        
         // Wenn eine Serie ausgewählt wird Infos abfragen und zu cbEpisode hinzufügen.
         //
         private void cbSerie_SelectedValueChanged(object sender, EventArgs e)
